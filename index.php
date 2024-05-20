@@ -4,6 +4,7 @@ require_once __DIR__ . '/Dependencies/constants.php';
 require_once __DIR__ . '/Dependencies/variables.php';
 require_once __DIR__ . '/Funcoes/getPlayersName.php';
 require_once __DIR__ . '/Funcoes/buildBoard.php';
+require_once __DIR__ . '/Funcoes/showBoard.php';
 
 do{
     $players = getPlayersName();
@@ -15,14 +16,7 @@ do{
     $winner = null;
 
     while ($winner === null){
-        echo PHP_EOL . <<<END
-            POSIÇÕES:  | TABULEIRO
-            0 | 1 | 2  | $board[0]|$board[1]|$board[2]
-            3 | 4 | 5  | $board[3]|$board[4]|$board[5]
-            6 | 7 | 8  | $board[6]|$board[7]|$board[8]
-            
-            END . PHP_EOL
-        ;
+        echo showBoard($board);
 
         $position = (int) readline("Jogador {$player} Digite a sua posição: ". PHP_EOL);
 
@@ -58,6 +52,8 @@ do{
             $player = 'X';
         }
     }
+    
+    echo showBoard($board);
 
     if ($winner === 'X'){
         echo "Parabéns $playerOne, você foi o vencedor". PHP_EOL;
