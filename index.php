@@ -6,7 +6,8 @@ require_once __DIR__ . '/Funcoes/getPlayersName.php';
 require_once __DIR__ . '/Funcoes/buildBoard.php';
 require_once __DIR__ . '/Funcoes/showBoard.php';
 require_once __DIR__ . '/Funcoes/validatePosition.php';
-require_once __DIR__ . 'Funcoes/validatePlay.php';
+require_once __DIR__ . '/Funcoes/validatePlay.php';
+require_once __DIR__ . '/Funcoes/isBoardFull.php';
 
 do{
     $players = getPlayersName();
@@ -40,7 +41,7 @@ do{
             $winner = PLAYER_TWO;
             break;
         }
-        if(!in_array('.',$board))
+        if(isBoardFull($board))
         {
             break;
         }
