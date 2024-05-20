@@ -10,6 +10,7 @@ require_once __DIR__ . '/Funcoes/validatePlay.php';
 require_once __DIR__ . '/Funcoes/isBoardFull.php';
 require_once __DIR__ . '/Funcoes/swapPlayer.php';
 require_once __DIR__ . '/Funcoes/showWinner.php';
+require_once __DIR__ . '/Funcoes/playAgain.php';
 
 do{
     $players = getPlayersName();
@@ -45,6 +46,7 @@ do{
         }
         if(isBoardFull($board))
         {
+            $winner = '';
             break;
         }
         $player = swapPlayer($player);
@@ -55,10 +57,6 @@ do{
 
     echo showWinner($winner, $players);
 
-     $playAgain = filter_var
-     (
-         readline("Você deseja jogar novamente?(true/false)". PHP_EOL),
-         FILTER_VALIDATE_BOOLEAN
-     );
+     $playAgain = playAgain();
 
 }while ($playAgain === true);

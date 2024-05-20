@@ -8,5 +8,6 @@ function showWinner(string $winner, array $players): string
     } else if ($winner === PLAYER_TWO)
     {
         return "Parabéns $players[1], você foi o vencedor". PHP_EOL;
-    }
+    } 
+        return "Aconteceu um EMPATE!". PHP_EOL;
 }
