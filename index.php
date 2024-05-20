@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__ . 'contants.php';
-require_once __DIR__ . 'variables.php';
+require_once __DIR__ . '/Dependencies/constants.php';
+require_once __DIR__ . '/Dependencies/variables.php';
+require_once __DIR__.  '/Funcoes/getPlayersName.php';
 
 do{
-    $playerOne = readline("Jogador N1(X) - Insira o seu nome: ");
-    $playerTwo = readline("Jogador N2(O) - Insira o seu nome: ");
+    $players = getPlayersName();
 
     $player = 'X';
 
