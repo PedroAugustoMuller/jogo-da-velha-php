@@ -8,6 +8,7 @@ require_once __DIR__ . '/Funcoes/showBoard.php';
 require_once __DIR__ . '/Funcoes/validatePosition.php';
 require_once __DIR__ . '/Funcoes/validatePlay.php';
 require_once __DIR__ . '/Funcoes/isBoardFull.php';
+require_once __DIR__ . '/Funcoes/swapPlayer.php';
 
 do{
     $players = getPlayersName();
@@ -45,13 +46,8 @@ do{
         {
             break;
         }
-        if ($player === 'X')
-        {
-            $player = 'O';
-        } else 
-        {
-            $player = 'X';
-        }
+        swapPlayer($player);
+        
     }
 
     echo showBoard($board);
