@@ -2,16 +2,15 @@
 
 require_once __DIR__ . '/Dependencies/constants.php';
 require_once __DIR__ . '/Dependencies/variables.php';
-require_once __DIR__.  '/Funcoes/getPlayersName.php';
+require_once __DIR__ . '/Funcoes/getPlayersName.php';
+require_once __DIR__ . '/Funcoes/buildBoard.php';
 
 do{
     $players = getPlayersName();
 
-    $player = 'X';
+    $player = PLAYER_ONE;
 
-    $board = ['.','.','.',
-              '.','.','.',
-              '.','.','.']; 
+    $board = buildBoard(); 
 
     $winner = null;
 
