@@ -9,6 +9,7 @@ require_once __DIR__ . '/Funcoes/validatePosition.php';
 require_once __DIR__ . '/Funcoes/validatePlay.php';
 require_once __DIR__ . '/Funcoes/isBoardFull.php';
 require_once __DIR__ . '/Funcoes/swapPlayer.php';
+require_once __DIR__ . '/Funcoes/showWinner.php';
 
 do{
     $players = getPlayersName();
@@ -46,22 +47,13 @@ do{
         {
             break;
         }
-        swapPlayer($player);
+        $player = swapPlayer($player);
         
     }
 
     echo showBoard($board);
 
-    if ($winner === 'X')
-    {
-        echo "Parabéns $playerOne, você foi o vencedor". PHP_EOL;
-    } else if ($winner === 'O') 
-    {
-        echo "Parabéns $playerTwo, você foi o vencedor". PHP_EOL;
-    } else {
-
-        echo "Aconteceu um EMPATE!". PHP_EOL;
-    }
+    echo showWinner($winner, $players);
 
      $playAgain = filter_var
      (
