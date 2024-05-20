@@ -5,6 +5,7 @@ require_once __DIR__ . '/Dependencies/variables.php';
 require_once __DIR__ . '/Funcoes/getPlayersName.php';
 require_once __DIR__ . '/Funcoes/buildBoard.php';
 require_once __DIR__ . '/Funcoes/showBoard.php';
+require_once __DIR__ . '/Funcoes/validatePosition.php';
 
 do{
     $players = getPlayersName();
@@ -20,12 +21,7 @@ do{
 
         $position = (int) readline("Jogador {$player} Digite a sua posição: ". PHP_EOL);
 
-        if(!in_array($position,[0,1,2,3,4,5,6,7,8])){
-            echo "Posição fora do tabuleiro!" . PHP_EOL . "Insira a posição novamente" . PHP_EOL;
-            continue;
-        }
-        if($board[$position] !== '.'){
-            echo "Posição já ocupada!" . PHP_EOL . "Insira a posição novamente". PHP_EOL;
+        if (!validatePosition($position,$board)){
             continue;
         }
 
@@ -52,7 +48,7 @@ do{
             $player = 'X';
         }
     }
-    
+
     echo showBoard($board);
 
     if ($winner === 'X'){
