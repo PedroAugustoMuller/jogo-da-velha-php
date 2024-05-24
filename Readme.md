@@ -1,4 +1,5 @@
 Aplicativo de jogo da velha em PHP - Programa Novos Talentos Imply
+Referência: Code Easy - https://youtu.be/ZaN1G4-NvpU?si=fp0L7qoqtfalsSqU
 <br/>
 **Fluxo**
 1° - Pede o nome dos jogadores
